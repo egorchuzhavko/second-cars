@@ -1,4 +1,4 @@
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from '../../hooks/useAuth';
 
 const Header = () => {
   const { user, setUser } = useAuth();
@@ -6,13 +6,16 @@ const Header = () => {
   return user ? (
     <>
       <h2>Welcome, {user.name}</h2>
-      <button onClick={() => setUser(null)}>Logout</button>
+      <button onClick={() => setUser(null)} className='btn'>
+        Logout
+      </button>
     </>
   ) : (
     <button
+      className='btn'
       onClick={() =>
         setUser({
-          name: "Yahor",
+          name: 'Yahor',
         })
       }
     >

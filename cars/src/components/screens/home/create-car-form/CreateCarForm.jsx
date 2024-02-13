@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import styles from "./CreateCarForm.module.css";
-import { CarService } from "../../../../services/car.service.js";
-import { useForm } from "react-hook-form";
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { CarService } from '../../../../services/car.service.js';
+import styles from './CreateCarForm.module.css';
 
 const CreateCarForm = ({ setCars }) => {
   const {
@@ -10,7 +10,7 @@ const CreateCarForm = ({ setCars }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: "onChange",
+    mode: 'onChange',
   });
 
   useEffect(() => {
@@ -22,37 +22,37 @@ const CreateCarForm = ({ setCars }) => {
     fetchData();
   }, []);
 
-  const createCar = (data) => {
+  const createCar = data => {
     console.log(data);
-    setCars((prev) => [...prev, { id: prev.length + 1, ...data }]);
+    setCars(prev => [...prev, { id: prev.length + 1, ...data }]);
     reset(clearData);
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(createCar)}>
       <input
-        {...register("name", { required: "Name is required" })}
-        placeholder="Name"
+        {...register('name', { required: 'Name is required' })}
+        placeholder='Name'
       />
       {errors?.name?.message && (
-        <p style={{ color: "red" }}>Name is required</p>
+        <p style={{ color: 'red' }}>Name is required</p>
       )}
       <input
-        {...register("price", { required: "Price is required" })}
-        placeholder="Price"
+        {...register('price', { required: 'Price is required' })}
+        placeholder='Price'
       />
       {errors?.price?.message && (
-        <p style={{ color: "red" }}>Price is required</p>
+        <p style={{ color: 'red' }}>Price is required</p>
       )}
       <input
-        {...register("image", { required: "Image link is required" })}
-        placeholder="Image"
+        {...register('image', { required: 'Image link is required' })}
+        placeholder='Image link'
       />
       {errors?.image?.message && (
-        <p style={{ color: "red" }}>Image link is required</p>
+        <p style={{ color: 'red' }}>Image link is required</p>
       )}
       <br></br>
-      <button className="btn">Create</button>
+      <button className='btn'>Create</button>
     </form>
   );
 };

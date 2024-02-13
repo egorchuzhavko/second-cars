@@ -1,12 +1,8 @@
-import { useContext, useState } from "react";
-import CarItem from "./car-item/CarItem.jsx";
-import { cars as carsData } from "./cars.data.js";
-import CreateCarForm from "./create-car-form/CreateCarForm.jsx";
-import { AuthContext } from "../../../providers/AuthProvider.jsx";
-import { useQuery } from "@tanstack/react-query";
-import { CarService } from "../../../services/car.service.js";
-import Header from "../../ui/Header.jsx";
-import Catalog from "../../ui/Catalog.jsx";
+import { useState } from 'react';
+import Catalog from '../../ui/Catalog.jsx';
+import Header from '../../ui/Header.jsx';
+import { cars as carsData } from './cars.data.js';
+import CreateCarForm from './create-car-form/CreateCarForm.jsx';
 
 const Home = () => {
   // const { data, isLoading, error } = useQuery(["cars"], () =>
